@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <link rel="stylesheet" href="Tic-Tac-Toe.css">
+</head>
+
+<body>
+    <h3>TIC-TAC-TOE</h3>
+    <div id="player">
+        <p>Players Should Enter Their Names</p>
+        <input type="text" id="Player1" placeholder="Player1">
+        <input type="text" id="Player2" placeholder="Player2">
+
+        <button id="btn" onclick="onStart()">Start</button>
+    </div>
+    <div class="namePlayer" id="namePlayer">WELCOME!!!</div>
+    <div class="namePlayer" id="result">GOODLUCK DEAR PLAYERS!!!</div>
+    <div class="all">
+        <div class="row">
+            <button class="play" onclick="playHere(event)" id="one"></button>
+            <button class="play" onclick="playHere(event)" id="two"></button>
+            <button class="play" onclick="playHere(event)" id="three"></button>
+        </div>
+        <div class="row">
+            <button class="play" onclick="playHere(event)" id="four"></button>
+            <button class="play" onclick="playHere(event)" id="five"></button>
+            <button class="play" onclick="playHere(event)" id="six"></button>
+        </div>
+        <div class="row">
+            <button class="play" onclick="playHere(event)" id="seven"></button>
+            <button class="play" onclick="playHere(event)" id="eight"></button>
+            <button class="play" onclick="playHere(event)" id="nine"></button>
+        </div>
+
+    </div>
+    <div class="scoreboard">
+        <div id="firstplayer" class="firstplayer"></div>
+        <div id="secondplayer" class="secondplayer"></div>
+        <div class="score">
+            <div id="scoreone">0</div>
+            <div>-</div>
+            <div id="scoretwo">0</div>
+        </div>
+
+    </div>
+    <div class="replay">
+        <button class="replaybutton" onclick="rePlay()">Replay</button>
+
+    </div>
+
+    <script type="text/javascript">
+
+        var a = true;
+        const onStart = () => {
+            if (Player1.value != "" && Player2.value != "" && btn.innerHTML == "Start") {
+                btn.innerHTML = "End"
+                //firstplayer.innerHTML = Player1.value;
+                //secondplayer.innerHTML = Player2.value;
+                namePlayer.innerHTML = Player1.value + "{X}";
+                result.innerHTML = "GOODLUCK!!!"
+                one.innerHTML = "";
+                two.innerHTML = "";
+                three.innerHTML = "";
+                four.innerHTML = "";
+                five.innerHTML = "";
+                six.innerHTML = "";
+                seven.innerHTML = "";
+                eight.innerHTML = "";
+                nine.innerHTML = "";
+
+
+            }
+            else if (Player1.value != "" && Player2.value != "" && btn.innerHTML == "End") {
+                Player1.value = "";
+                Player2.value = "";
+                //firstplayer.innerHTML = "";
+                //secondplayer.innerHTML = "";
+                nameplayer.innerHTML = "End of Game!!!";
+                result.innerHTML = "End of Game!!! ";
+                scoreone.innerHTML = "0";
+                scoretwo.innerHTML = "0";
+                btn.innerHTML = "Start";
+                one.innerHTML = "";
+                two.innerHTML = "";
+                three.innerHTML = "";
+                four.innerHTML = "";
+                five.innerHTML = "";
+                six.innerHTML = "";
+                seven.innerHTML = "";
+                eight.innerHTML = "";
+                nine.innerHTML = "";
+            }
+            else {
+                namePlayer.innerHTML = "Please input your names.";
+                result.innerHTML = "Please input your name";
+            }
+
+        }
+        const rePlay = () => {
+            one.innerHTML = "";
+            two.innerHTML = "";
+            three.innerHTML = "";
+            four.innerHTML = "";
+            five.innerHTML = "";
+            six.innerHTML = "";
+            seven.innerHTML = "";
+            eight.innerHTML = "";
+            nine.innerHTML = "";
+            namePlayer.innerHTML = "GO ON PLAYERS!!!"
+            result.innerHTML = "Another chance {GOODLUCK!!!}";
+
+            var b = document.getElementsByClassName("play")
+            for (let index = 0; index < b.length; index++) {
+                b[index].disabled = false;
+                c = true;
+
+
+
+            }
+
+
+        }
+        var c = true;
+        const playHere = (event) => {
+
+            if (Player1.value == "" || Player2.value == "" || btn.innerHTML == "Start") {
+                event.target.innerHTML = "";
+            }
+
+
+
+            if (a && event.target.innerHTML == "") {
+                a = false;
+                event.target.innerHTML = "X"
+            }
+            else if (a != event.target.innerHTML == "") {
+                a = true;
+                event.target.innerHTML = "O"
+            }
+            else {
+
+            }
+
+
+            if ((one.innerHTML != "") &&
+                (two.innerHTML != "") &&
+                (three.innerHTML != "") &&
+                (four.innerHTML != "") &&
+                (five.innerHTML != "") &&
+                (six.innerHTML != "") &&
+                (seven.innerHTML != "") &&
+                (eight.innerHTML != "") &&
+                (nine.innerHTML != "")) {
+                namePlayer.innerHTML = "Oopss!!! Draw game. Click on Re-play to play again or End to end the game";
+                result.innerHTML = "NO WINNER"
+            }
+
+
+
+
+            if (
+                (c && one.innerHTML == "X" && two.innerHTML == "X" && three.innerHTML == "X") ||
+                (c && four.innerHTML == "X" && five.innerHTML == "X" && six.innerHTML == "X") ||
+                (c && seven.innerHTML == "X" && eight.innerHTML == "X" && nine.innerHTML == "X") ||
+                (c && one.innerHTML == "X" && four.innerHTML == "X" && seven.innerHTML == "X") ||
+                (c && two.innerHTML == "X" && five.innerHTML == "X" && eight.innerHTML == "X") ||
+                (c && three.innerHTML == "X" && six.innerHTML == "X" && nine.innerHTML == "X") ||
+                (c && one.innerHTML == "X" && five.innerHTML == "X" && nine.innerHTML == "X") ||
+                (c && three.innerHTML == "X" && five.innerHTML == "X" && seven.innerHTML == "X")
+            ) {
+                namePlayer.innerHTML = Player1.value + " Won. "
+                result.innerHTML = Player2.value + " {O} it will be your turn after re-play";
+                c = false;
+                ++scoreone.innerHTML;
+
+                var b = document.getElementsByClassName("play")
+                for (let index = 0; index < b.length; index++) {
+                    b[index].disabled = true;
+
+
+
+                }
+                
+            }
+
+            if (
+                (c && one.innerHTML == "O" && two.innerHTML == "O" && three.innerHTML == "O") ||
+                (c && four.innerHTML == "O" && five.innerHTML == "O" && six.innerHTML == "O") ||
+                (c && seven.innerHTML == "O" && eight.innerHTML == "O" && nine.innerHTML == "O") ||
+                (c && one.innerHTML == "O" && four.innerHTML == "O" && seven.innerHTML == "O") ||
+                (c && two.innerHTML == "O" && five.innerHTML == "O" && eight.innerHTML == "O") ||
+                (c && three.innerHTML == "O" && six.innerHTML == "O" && nine.innerHTML == "O") ||
+                (c && one.innerHTML == "O" && five.innerHTML == "O" && nine.innerHTML == "O") ||
+                (c && three.innerHTML == "O" && five.innerHTML == "O" && seven.innerHTML == "O")
+            ) {
+                namePlayer.innerHTML = Player2.value + " Won. Click on replay or End.";
+                result.innerHTML = Player1.value + " {X}";
+                c = false;
+                ++scoretwo.innerHTML;
+                var b = document.getElementsByClassName("play")
+                for (let index = 0; index < b.length; index++) {
+                    b[index].disabled = true;
+
+
+
+                }
+            }
+
+
+
+        }
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

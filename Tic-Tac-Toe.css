@@ -1,0 +1,145 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: color-burn;
+    background-color: rgb(0, 0, 0, 0.8);
+    height: 100vh;
+    align-content: center;
+    
+}
+h3{
+    color:white ;
+    font-size: 30pt;
+    text-align: center;
+    padding-top: 5px;
+    font-family: bahnschrift;
+
+}
+#player{
+    background-color: rgb(0, 0, 0, 1);
+    display: flex;
+    flex-direction: column;
+
+}
+p{
+    color: silver;
+    padding-top: 10px;
+    font-size: 15pt;
+    text-align: center;
+    padding-bottom: 10pt;
+}
+#player input{
+    border: 1px solid grey;
+    background-color: transparent;
+    border-radius: 20px;
+    width: 30%;
+    margin: 5px auto;
+    color: white;
+    font-size: 15pt;
+    outline: none;
+    text-align: center;
+}
+#player button{
+    color: white;
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    border: 0px;
+    margin: 5px auto;
+    background-color: turquoise;
+    outline: none;
+}
+.namePlayer{
+    color: white;
+    text-align: center;
+    font-size: 15pt;
+    padding-left: 30px;
+    font-family: consolase;
+}
+::placeholder{
+    color: white;
+    text-align: center;
+}
+.all{
+    margin-top: 10px;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    width: 240px;
+    margin: 0 auto;
+}
+.row button{
+    background-color: rgb(0, 0, 0, 0.7);
+    width: 80px;
+    height: 80px;
+    border: 3px inset silver;
+    color: turquoise;
+    font-size: 40pt;
+    padding: 10px;
+    text-align: center;
+    border-radius: 30px;
+}
+.scoreboard {
+    width: 90%;
+    margin: 10px ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.firstplayer {
+    height: 50px;
+    width: 30%;
+    color: white;
+    font-size: 20pt;
+    text-align: center;
+    padding: 15px;
+}
+
+.score {
+    background-color: rgba(0,0,0, 0.6);
+    height: 50px;
+    width: 20%;
+    border-radius: 50px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top: 2px solid silver;
+    /* box-shadow: 2px 6px 5px 0 rgba(255, 255, 255, 0.5);	 */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.score div {
+    text-align: center;
+    font-size: 30pt;
+    color: white;
+}
+.secondplayer{
+    height: 50px;
+    width:30%;
+    color: white;
+    font-size: 20pt;
+    text-align: center;
+    padding: 15px;
+
+}.replay{
+    margin: 2px auto;
+    width: 100px;
+    height: 40px;
+}
+.replaybutton{
+    width: 100px;
+    background-color: turquoise;
+    height: 40px;
+    border: none;
+    border-radius: 50px;
+    color: white;
+}
